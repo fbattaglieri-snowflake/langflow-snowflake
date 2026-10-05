@@ -1,0 +1,16 @@
+langflow-snowflake is an independent, unofficial deployment kit.
+Copyright 2026 langflow-snowflake contributors.
+
+Langflow 1.12.2 is used through its publicly distributed container image.
+Its license is MIT, Copyright (c) 2024 Langflow.
+See third_party/LANGFLOW_LICENSE and the upstream image for dependency notices.
+Upstream: https://github.com/langflow-ai/langflow/tree/v1.12.2
+
+The persistent entrypoint is adapted from the project's private pilot by its
+maintainer. No pilot account data, credentials or flow exports are included.
+The public chat adapter is a new, deliberately bounded implementation, not the
+private multi-backend proxy or a copy of the separately developed proxy runtime.
+
+Python, Debian, pgvector and all packages in the upstream Langflow image retain
+their own copyright and license notices. Building this kit does not relicense
+those packages, model weights or Snowflake services.

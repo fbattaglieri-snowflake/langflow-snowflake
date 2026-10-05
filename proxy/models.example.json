@@ -1,0 +1,11 @@
+{
+  "models": [
+    {
+      "id": "REPLACE_WITH_VERIFIED_CORTEX_CHAT_MODEL",
+      "backend": "cortex",
+      "tools": false,
+      "rename_max_tokens": true,
+      "normalize_finish_reason": false
+    }
+  ]
+}

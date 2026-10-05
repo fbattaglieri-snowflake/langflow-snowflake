@@ -1,0 +1,8 @@
+**
+!docker/
+!docker/langflow/
+!docker/langflow/Dockerfile
+!docker/langflow/entrypoint.sh
+!proxy/
+!proxy/Dockerfile
+!proxy/server.py
