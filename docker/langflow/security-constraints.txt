@@ -1,0 +1,9 @@
+# Fixed versions within the inspected Langflow dependency ranges.
+# Remaining upstream/vendored findings still block deployment.
+pgvector==0.5.0
+PyJWT==2.15.0
+pypdf==6.19.0
+urllib3==2.8.0
+fsspec==2026.6.0
+langgraph-sdk==0.4.4
+pymongo==4.18.2

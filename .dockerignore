@@ -3,6 +3,7 @@
 !docker/langflow/
 !docker/langflow/Dockerfile
 !docker/langflow/entrypoint.sh
+!docker/langflow/security-constraints.txt
 !proxy/
 !proxy/Dockerfile
 !proxy/server.py

@@ -43,3 +43,31 @@ The upstream 1.12.4 image was separately scanned at digest
 19 HIGH and 3 CRITICAL findings remain, including findings with no fixed version.
 It was not substituted as a supposedly clean upgrade. Langflow deployment stays
 blocked; the tested 1.12.2 baseline is retained transparently for review.
+
+## Security remediation candidate (not released)
+
+The Dockerfile now installs explicit compatible upgrades from
+`docker/langflow/security-constraints.txt`: PyJWT 2.15.0, pypdf 6.19.0,
+urllib3 2.8.0, fsspec 2026.6.0, langgraph-sdk 0.4.4 and pymongo 4.18.2.
+`pip check` passes. Both offline login/persistence boots pass again with 46
+tables and a persistent marker. No live installation was upgraded.
+
+The complete candidate scan still reports **10 HIGH / 2 CRITICAL**:
+- ChromaDB 1.5.9: two CRITICAL and two HIGH findings, with no patched version
+  recorded in the inspected upstream advisories. Langflow-base requires
+  `chromadb>=1.0.0,<2.0.0`; uninstalling it would violate the selected application
+  profile and remove functionality rather than transparently fix it.
+- npm's bundled brace-expansion, http-cache-semantics and undici: four HIGH.
+- pip's bundled msgpack, setuptools and urllib3: four HIGH; updating the separate
+  application packages does not replace these vendored copies.
+
+The Chroma advisories describe server collection APIs; exploitability in this
+Langflow configuration has not been established. That is **not** a clean scan
+or permission to suppress the findings. No dependency metadata was deleted,
+no scanner exclusion added, and no component removed to bypass the gate.
+
+The source is published for review with these findings explicitly disclosed.
+Deployment and image promotion remain blocked pending an actual compatible fix
+or a separately approved and tested change of application profile. Reference:
+[Chroma pre-auth code injection](https://github.com/advisories/GHSA-f4j7-r4q5-qw2c)
+and [Chroma collection update code injection](https://github.com/advisories/GHSA-36p7-vc44-83pf).
