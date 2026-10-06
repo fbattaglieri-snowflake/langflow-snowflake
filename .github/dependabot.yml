@@ -4,15 +4,27 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 1
+    groups:
+      actions:
+        patterns: ['*']
   - package-ecosystem: pip
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 1
+    groups:
+      python-tooling:
+        patterns: ['*']
   - package-ecosystem: docker
     directory: /docker/langflow
     schedule:
       interval: weekly
+    # Version promotion is manual until upstream security blockers are resolved.
+    # This does not disable GitHub security alerts or the complete image scan.
+    open-pull-requests-limit: 0
   - package-ecosystem: docker
     directory: /proxy
     schedule:
       interval: weekly
+    open-pull-requests-limit: 1
