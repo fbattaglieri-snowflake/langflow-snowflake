@@ -4,7 +4,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    open-pull-requests-limit: 1
+    # Automated version PR branches are disabled; updates are consolidated on main.
+    # This does not disable GitHub security alerts or CI scans.
+    open-pull-requests-limit: 0
     groups:
       actions:
         patterns: ['*']
@@ -12,7 +14,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    open-pull-requests-limit: 1
+    open-pull-requests-limit: 0
     groups:
       python-tooling:
         patterns: ['*']
@@ -27,4 +29,4 @@ updates:
     directory: /proxy
     schedule:
       interval: weekly
-    open-pull-requests-limit: 1
+    open-pull-requests-limit: 0
