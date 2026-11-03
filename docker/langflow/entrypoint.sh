@@ -19,6 +19,7 @@ fi
 export LANGFLOW_CONFIG_DIR="$DATA_DIR/config"
 export LANGFLOW_DATABASE_URL="sqlite:///$DATA_DIR/langflow.db"
 export LANGFLOW_KNOWLEDGE_BASES_DIR="$DATA_DIR/knowledge_bases"
+export LANGFLOW_COMPONENTS_PATH="${LANGFLOW_COMPONENTS_PATH:-/opt/standard-components}"
 export LANGFLOW_AUTO_LOGIN=false
 export LANGFLOW_NEW_USER_IS_ACTIVE=false
 export LANGFLOW_HOST=0.0.0.0

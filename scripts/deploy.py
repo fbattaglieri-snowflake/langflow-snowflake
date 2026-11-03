@@ -120,6 +120,8 @@ def specification(config, kind, proxy_dns=""):
     return {"spec": {
         "containers": [{"name": "langflow", "image": f'{repo}/langflow:{config["image_tag"]}',
                         "env": {"LANGFLOW_SSRF_ALLOWED_HOSTS": proxy_dns,
+                                "LANGFLOW_COMPONENTS_PATH": "/opt/standard-components",
+                                "STANDARD_PROXY_ORIGIN": f"http://{proxy_dns}:8080",
                                 "LANGFLOW_A2A_ENABLED": str(config["a2a_enabled"]).lower(),
                                 "LANGFLOW_LOG_LEVEL": "INFO"},
                         "secrets": secrets,

@@ -4,6 +4,8 @@ USER root
 COPY docker/langflow/security-constraints.txt /tmp/security-constraints.txt
 RUN /app/.venv/bin/pip install --no-cache-dir -r /tmp/security-constraints.txt \
     && /app/.venv/bin/python -c "import pgvector.sqlalchemy, jwt, pypdf, urllib3"
+COPY docker/langflow/standard_langflow.py /app/.venv/lib/python3.14/site-packages/standard_langflow.py
+COPY docker/langflow/components /opt/standard-components
 COPY --chmod=0755 docker/langflow/entrypoint.sh /usr/local/bin/persistent-entrypoint
 ENTRYPOINT ["/usr/local/bin/persistent-entrypoint"]
 CMD []

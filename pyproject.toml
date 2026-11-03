@@ -7,4 +7,4 @@ select = ["E4", "E7", "E9", "F"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["scripts", "proxy"]
+pythonpath = ["scripts", "proxy", "docker/langflow"]
